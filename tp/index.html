@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TP Personal - Datos de Running</title>
   <style>
-    :root{ --max: 1200px; } /* antes 980px */
+    :root{ --max: 1200px; } /* ancho máximo más grande */
     body{ font-family: Arial, sans-serif; margin: 20px; background:#fafafa; color:#333; }
     h1{ text-align:center; margin: 0 0 24px; }
     .wrap{ max-width: var(--max); margin: 0 auto; }
     .chart{ margin: 28px 0 40px; }
     .chart h2{ margin: 0 0 12px; font-size: 18px; }
 
-    /* Power BI: relación de aspecto fija */
-    .embed-fixed{ position:relative; width:100%; height:0; padding-bottom:62%; margin-bottom:16px; }
-    .embed-fixed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
-    /* Solo para Power BI (más alto) */
-    .embed-fixed.tall{ padding-bottom:80%; } /* probá 75–90% a gusto */
+    /* PowerBI más grande: relación 16:9 */
+    .embed-fixed { position:relative; width:100%; height:0; padding-bottom:56.25%; margin-bottom:16px; }
+    .embed-fixed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-    /* Flourish y Datawrapper: alto dinámico */
-    .embed-auto{ width:100%; height:auto; }
-    .embed-auto iframe{ width:100%; height:auto; border:0; display:block; }
-  </style>
+    /* Para Flourish y Datawrapper (alto dinámico ajustado por script) */
+    .embed-auto { width:100%; height:auto; }
+    .embed-auto iframe { width:100%; height:auto; border:0; display:block; }
+    /* SVG (RAWGraphs) responsive */
+  .svg-embed{ width:100%; height:auto; display:block; }
+</style>
 </head>
 <body>
   <div class="wrap">
@@ -29,7 +29,7 @@
 
     <div class="chart">
       <h2>PowerBI</h2>
-      <div class="embed-fixed tall">
+      <div class="embed-fixed">
         <iframe title="tpDatosPersonales3" src="https://app.powerbi.com/view?r=eyJrIjoiMjRlNWUwZjQtY2I2Yi00MjhiLWI5ZWEtNzIzMTEwOWEzYzJiIiwidCI6ImExZjUwYTk3LTIxYzAtNDlhNy1hOWQ0LWYyNDRlYmI0MmRhNyIsImMiOjR9" allowfullscreen></iframe>
       </div>
     </div>
@@ -42,23 +42,26 @@
     </div>
 
     <div class="chart">
+      <h2>RawGraph</h2>
+      <h2>¿Que dia de la semana prefiero correr?</h2>
+      <div class="embed-auto">
+        <object data="graph1.svg" type="image/svg+xml" class="svg-embed">
+          <img src="graph1.svg" alt="Grafico RAWGraphs: dia de semana preferido" class="svg-embed" />
+        </object>
+      </div>
+    </div>
+
+    <div class="chart">
       <h2>DataWrapper</h2>
       <div class="embed-auto">
         <iframe title="¿Qué tan rápido corro dependiendo de la distancia?" aria-label="Scatter Plot" id="datawrapper-chart-ExI6x" src="https://datawrapper.dwcdn.net/ExI6x/1/" scrolling="no" data-external="1"></iframe>
       </div>
     </div>
-
-    <div class="chart">
-      <h2>RawGraph</h2>
-      <div class="embed-auto">
-       <object data="graph1.svg" type="image/svg+xml"></object>
-      </div>
-    </div>
   </div>
-  
 
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <script>
+    // Ajuste automático de alto de Datawrapper (snippet oficial)
     (function(){
       window.addEventListener("message",function(e){
         if(void 0!==e.data["datawrapper-height"]) {
