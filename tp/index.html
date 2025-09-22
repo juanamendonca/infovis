@@ -19,9 +19,13 @@
     /* Para Flourish y Datawrapper (alto dinámico ajustado por script) */
     .embed-auto { width:100%; height:auto; }
     .embed-auto iframe { width:100%; height:auto; border:0; display:block; }
-    /* SVG (RAWGraphs) responsive */
-  .svg-embed{ width:100%; height:auto; display:block; }
-</style>
+
+    /* Centrado horizontal genérico */
+    .center { display:flex; justify-content:center; }
+
+    /* SVG (RAWGraphs) responsive y centrado */
+    .svg-embed { width: min(100%, 900px); height:auto; display:block; }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -43,10 +47,15 @@
 
     <div class="chart">
       <h2>RawGraph</h2>
-      <h2>¿Que dia de la semana prefiero correr?</h2>
-      <div class="embed-auto">
+      <h2>¿Que día de la semana prefiero correr?</h2>
+      <div class="embed-auto center">
         <object data="graph2.svg" type="image/svg+xml" class="svg-embed">
-          <img src="graph2.svg" alt="Grafico RAWGraphs: dia de semana preferido" class="svg-embed" />
+          <img src="graph2.svg" alt="Gráfico RAWGraphs: día de semana preferido" class="svg-embed" />
+        </object>
+      </div>
+      <div class="embed-auto center" style="margin-top:14px;">
+        <object data="graph3.svg" type="image/svg+xml" class="svg-embed">
+          <img src="graph3.svg" alt="Gráfico RAWGraphs: día de semana preferido" class="svg-embed" />
         </object>
       </div>
     </div>
