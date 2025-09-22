@@ -20,11 +20,12 @@
     .embed-auto { width:100%; height:auto; }
     .embed-auto iframe { width:100%; height:auto; border:0; display:block; }
 
-    /* Centrado horizontal genérico */
-    .center { display:flex; justify-content:center; }
+    /* SVG (RAWGraphs) responsive */
+    .svg-embed{ width:100%; height:auto; display:block; }
 
-    /* SVG (RAWGraphs) responsive y centrado */
-    .svg-embed { width: min(100%, 900px); height:auto; display:block; }
+    /* <<< Achicar Flourish >>> */
+    .flourish-wrap { display:flex; justify-content:center; }
+    .flourish-box  { width: min(100%, 600px); } /* cambiá 720px si lo querés más/menos chico */
   </style>
 </head>
 <body>
@@ -40,22 +41,24 @@
 
     <div class="chart">
       <h2>Flourish</h2>
-      <div class="embed-auto">
-        <div class="flourish-embed flourish-hierarchy" data-src="visualisation/25249962"></div>
+      <div class="embed-auto flourish-wrap">
+        <div class="flourish-box">
+          <div class="flourish-embed flourish-hierarchy" data-src="visualisation/25249962"></div>
+        </div>
       </div>
     </div>
 
     <div class="chart">
       <h2>RawGraph</h2>
-      <h2>¿Que día de la semana prefiero correr?</h2>
-      <div class="embed-auto center">
+      <h2>¿Que dia de la semana prefiero correr?</h2>
+      <div class="embed-auto">
         <object data="graph2.svg" type="image/svg+xml" class="svg-embed">
-          <img src="graph2.svg" alt="Gráfico RAWGraphs: día de semana preferido" class="svg-embed" />
+          <img src="graph2.svg" alt="Grafico RAWGraphs: dia de semana preferido" class="svg-embed" />
         </object>
       </div>
-      <div class="embed-auto center" style="margin-top:14px;">
+      <div class="embed-auto">
         <object data="graph3.svg" type="image/svg+xml" class="svg-embed">
-          <img src="graph3.svg" alt="Gráfico RAWGraphs: día de semana preferido" class="svg-embed" />
+          <img src="graph3.svg" alt="Grafico RAWGraphs: dia de semana preferido" class="svg-embed" />
         </object>
       </div>
     </div>
